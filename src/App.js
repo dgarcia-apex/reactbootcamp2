@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import films from './Films.json';
+
+
+function Movies() {
+  return (
+    <>
+    <ul className=''>  
+      {films.map((film, index) => (
+          <li key={index} style={{ marginBottom: '20px' }}>
+            <h3>{film.Title}</h3>
+            <p><strong>Género:</strong> {film.Genre}</p>
+            <p><strong>Director:</strong> {film.Director}</p>
+            <img src={film.Poster} alt={`Poster de ${film.Title}`} style={{ width: '200px' }} />
+          </li>
+      ))}
+    </ul>
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <Movies />
+      </div>
+    </>
   );
 }
 
